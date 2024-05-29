@@ -1,0 +1,112 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Formulario de celulares</strong>
+        </c-card-header>
+        <c-card-body>
+            <form cForm>
+              <div class="mb-3">
+                <label cLabel for="marca">Marca</label>
+                <input cFormControl
+                       id="marca"
+                       placeholder ="ingrese marca"
+                       [(ngModel)] = "celularModelo.marca"
+                       type="text"
+                       name="marca"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="modelo">Modelo</label>
+                <input cFormControl
+                       id="modelo"
+                       placeholder="ingrese el modelo"
+                       type="text"
+                       name="modelo"
+                       [(ngModel)] = "celularModelo.modelo"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="bateria">Bateria</label>
+                <input cFormControl
+                       id="bateria"
+                       placeholder="ingrese capacidad de bateria"
+                       type="number"
+                       name="bateria"
+                       [(ngModel)] = "celularModelo.bateria"
+  
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="camara_f">Camara frontal</label>
+                <input cFormControl
+                       id="camara_f"
+                       placeholder="ingrese capacidad en PX de camara frontal"
+                       type="number"
+                       name="camara_f"
+                       [(ngModel)] = "celularModelo.camara_f"  
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="camara_t">Camara trasera</label>
+                <input cFormControl
+                       id="camara_t"
+                       placeholder="ingrese capacidad en PX de camara trasera"
+                       type="number"
+                       name="camara_t"
+                       [(ngModel)] = "celularModelo.camara_t"  
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="usuario">Usuario</label>
+                <input cFormControl
+                       id="usuario"
+                       type="text"
+                       name="usuario"
+                       [(ngModel)] = "celularModelo.usuario"
+                />
+                <!-- <select  aria-label="Seleccione usuario" cSelect >
+                  <option></option>
+                  <option value="664407b69616a061c8547132">xiac</option>
+                  <option value="2">Esteban</option>
+                  <option value="3">Esther</option>
+                </select> -->
+              </div>
+              <button (click)="guardarCelular()" cButton class="me-1" color="primary" type="submit">
+                Guardar
+              </button>
+            </form>
+        </c-card-body>
+      </c-card>
+    </c-col>
+    <c-col xs="12">
+      <table cTable>
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Modelo<th>
+          <th scope="col">Bateria</th>
+          <th scope="col">Camara frontal</th>
+          <th scope="col">Camara trasera</th>
+          <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for ( celular of listaCelulares; track celular; ){
+            <tr>
+              <th scope="row">-</th>
+              <td>{{celular.marca}}</td>
+              <td>{{celular.modelo}}</td>
+              <td>{{celular.bateria}}</td>
+              <td>{{celular.camara_f}}</td>
+              <td>{{celular.camara_t}}</td>
+              <td>
+                <button cButton color="warning" variant="outline" (click)="verCelular(celular)">Editar</button>
+                <button (click)="eliminarCelular(celular)" cButton color="danger" variant="outline">Eliminar</button></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </c-col>
+  </c-row>

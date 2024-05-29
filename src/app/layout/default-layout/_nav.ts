@@ -10,6 +10,32 @@ export const navItems: INavData[] = [
       text: 'NEW'
     }
   },
+  //////-----------------------------------CELULAR INICIO
+  {
+    title: true,
+    name: 'Indice de Celulares'
+  },
+  {
+    name: 'Celulares',
+    url: '/celulares',
+    iconComponent: { name: 'cil-puzzle' },
+    children: [
+      {
+        name: 'Celulares',
+        url: '/celulares/celular',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Reportes',
+        url: '/celulares/reportes',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  
+  },
+
+
+  //////-----------------------------------CELULAR FINAL
   {
     title: true,
     name: 'Theme'
